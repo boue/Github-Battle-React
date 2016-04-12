@@ -10,9 +10,7 @@ var ReactDOM = require('react-dom');
 
 var ProfilePic = React.createClass({
   render: function(){
-    return (
-      return <img src="{this.props.imageUrl" style={{height: 100, width: 100}}/>
-    )
+    return <img src={this.props.imageUrl} style={{height: 100, width: 100}} />
   }
 });
 
@@ -28,9 +26,27 @@ var ProfileLink = React.createClass({
   }
 });
 
+var ProfileName = React.createClass({
+  render: function() {
+    return (
+      <div>{this.props.name}</div>
+    )
+  }
+});
 
+var Avatar = React.createClass({
+  render: function(){
+    return (
+      <div>
+        <ProfilePic imageUrl={this.props.user.image} />
+        <ProfileName name={this.props.user.name} />
+        <ProfileLink username={this.props.user.username} />
+      </div>
+    )
+  }
+})
 
 ReactDOM.render(
-  <HelloWorld name="Germain"/>,
+  <Avatar user={USER_DATA} />,
   document.getElementById('app')
 )
