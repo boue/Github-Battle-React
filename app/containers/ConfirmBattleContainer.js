@@ -6,29 +6,28 @@ var ConfirmBattleContainer = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
-  getInitialState: function(){
+  getInitialState: function () {
     return {
       isLoading: true,
-      playerInfo: []
+      playersInfo: [],
     }
   },
-  //once ConfirmBattle renders to the view we can go fetch users info github api
   componentDidMount: function () {
-      var query = this.props.location.query;
-      githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
-        .then(function (players) {
-          this.setState({
-            isLoading: false,
-            playersInfo: [players[0], players[1]]
-          })
-        }.bind(this))
-    },
-  render: function(){
+    var query = this.props.location.query;
+    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+      .then(function (players) {
+        this.setState({
+          isLoading: false,
+          playersInfo: [players[0], players[1]]
+        })
+      }.bind(this))
+  },
+  render: function () {
     return (
-      <ConfirmBattle 
+      <ConfirmBattle
         isLoading={this.state.isLoading}
-        playerInfo={this.state.playerInfo} />
-    );
+        playersInfo={this.state.playersInfo} />
+    )
   }
 });
 
