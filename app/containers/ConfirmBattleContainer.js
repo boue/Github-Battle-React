@@ -11,9 +11,16 @@ var ConfirmBattleContainer = React.createClass({
       playerInfo: []
     }
   },
+  //once ConfirmBattle renders to the view we can go fetch users info github api
+  componentDidMount: function(){
+    var query = this.props.location.query;
+    //fetch info from github then update the state
+  },
   render: function(){
     return (
-      <ConfirmBattle />
+      <ConfirmBattle 
+        isLoading={this.state.isLoading}
+        playerInfo={this.state.playerInfo} />
     );
   }
 });
