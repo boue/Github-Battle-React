@@ -12,6 +12,7 @@ var ConfirmBattleContainer = React.createClass({
       playersInfo: [],
     }
   },
+  //you can run .then on it because it returns a promise
   componentDidMount: function () {
     var query = this.props.location.query;
     githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
@@ -31,4 +32,4 @@ var ConfirmBattleContainer = React.createClass({
   }
 });
 
-module.exports = ConfirmBattleContainer;
+module.exports = ConfirmBattleContainer; 
