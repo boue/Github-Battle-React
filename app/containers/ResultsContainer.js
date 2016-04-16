@@ -1,31 +1,32 @@
+
 var React = require('react');
 var Results = require('../components/Results');
 var githubHelpers = require('../utils/githubHelpers');
 
 var ResultsContainer = React.createClass({
-  getInitialState: function() {
-    return (
+  getInitialState: function () {
+    return {
       isLoading: true,
       scores: []
-    )
+    }
   },
-  //we want to calculate the score and declare a winner
-  componentDidMount: function() {
+  //calculate scores and determine winner
+  componentDidMount: function () {
     githubHelpers.battle(this.props.location.state.playersInfo)
-      .then(function (scores){
+      .then(function (scores) {
         this.setState({
           scores: scores,
           isLoading: false
         })
-      }).bind(this)
+      }.bind(this))
   },
-  render: function() {
+  render: function () {
     return (
-      <Results 
-        isLoading={this.state.isLoading} 
-        scores={this.state.scores}
-        playersInfo={this.props.location.state.playersInfo} />
-    );
+      <Results
+        isLoading={this.state.isLoading}
+        playersInfo={this.props.location.state.playersInfo}
+        scores={this.state.scores} />
+    )
   }
 });
 
