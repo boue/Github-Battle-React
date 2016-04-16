@@ -1,4 +1,3 @@
-
 var React = require('react');
 var Results = require('../components/Results');
 var githubHelpers = require('../utils/githubHelpers');
@@ -10,7 +9,6 @@ var ResultsContainer = React.createClass({
       scores: []
     }
   },
-  //calculate scores and determine winner
   componentDidMount: function () {
     githubHelpers.battle(this.props.location.state.playersInfo)
       .then(function (scores) {

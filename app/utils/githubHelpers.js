@@ -6,7 +6,7 @@ function getUserInfo(username){
 
 //fetch github to get usernames repos
 function getRepos(username){
- return axios.get('https://api.github.com/users/' + username + '/repos&per_page=100') 
+ return axios.get('https://api.github.com/users/' + username + '/repos?per_page=100') 
 }
 //calculate all the stars user has
 function getTotalStars(repos) {
